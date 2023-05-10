@@ -1,15 +1,12 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { MongooseModule } from '@nestjs/mongoose';
-
+import { CatsModule } from './cats/cats.module';
+import { StudentsModule } from './students/students.module';
 @Module({
-  imports: [MongooseModule.forRoot('mongodb+srv://Surya:Surya@cluster0.bwfkc.mongodb.net/test?retryWrites=true&w=majority')],
-})
-
-@Module({
-  imports: [],
-  controllers: [AppController],
-  providers: [AppService],
+  imports: [
+    MongooseModule.forRoot('mongodb+srv://Surya:Surya@cluster0.bwfkc.mongodb.net/nestJs?retryWrites=true&w=majority'),
+    CatsModule,
+    StudentsModule
+  ],
 })
 export class AppModule {}
