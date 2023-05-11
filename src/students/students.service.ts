@@ -10,7 +10,6 @@ export class StudentsService {
   constructor(@InjectModel(Student.name) private readonly studentModel: Model<Student>) {}
 
   async create(createStudentDto: CreateStudentDto): Promise<Student> {
-    
     const createdStudent = await this.studentModel.create(createStudentDto);
     return createdStudent;
   }
